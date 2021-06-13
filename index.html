@@ -6,14 +6,12 @@
         <title>Doing_Info</title>
         <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+        <body>
         <script>
             function getParameter( parameterName){
                 let parameters = new URLSearchParams( window.location.search);
                 return parameters.get( parameterName);
             }
-        </script>
-        <script>
-            var userinfo
             var firebaseConfig = {
                 apiKey: "AIzaSyDG-SGv3SxwJ4Rmt__KcBLqraYBeCpr39g",
                 authDomain: "doing-651bf.firebaseapp.com",
@@ -28,30 +26,28 @@
             firebase.initializeApp(firebaseConfig);
 
             function userFunc(){
-                var userkey=[0];
+                var userinfo_get = new Array(0);
                 var firebaseRef = firebase.database().ref("users/"+getParameter("id"));
                 firebaseRef.get().then((snapshot) => {
                     if (snapshot.exists()) {
                         snapshot.forEach((childSnapshot) => {
-                            // document.querySelector('#root').innerHTML +=
-                            // `<div>${childSnapshot.key+" : "+childSnapshot.val()}</div>`
-                            userkey.push(childSnapshot.val());
+                            document.querySelector('#root').innerHTML +=
+                            `<div>${childSnapshot.key+" : "+childSnapshot.val()}</div>`
+                            userinfo_get.push(childSnapshot.val());
                         });
-                        console.log(snapshot.val());
                     } else {
                         document.querySelector('#root').innerHTML =`
                             <div>${"없는 사용자입니다!"}</div>
                             `
                     }
-                    document.write(userkey);
+                    console.log(userinfo_get);
+                    document.getElementById("root2").innerHTML = userinfo_get[1];
                 });
-                return userkey;
             }
-            userinfo = userFunc();
-            console.log(userinfo);
+            userFunc();
         </script>
-    </head>
-    <body>
-        <div id = "root"></div>        
+        
+        <div id = "root"></div>
+        <div id = "root2"></div>
     </body>
 </html>
