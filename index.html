@@ -69,6 +69,8 @@
                 // document.getElementById("level").innerHTML = userinfo_get[3];
                 if(name){
                     document.getElementById("name").innerHTML = name+'님은';
+                }else{
+                    document.getElementById("name").innerHTML = '해당 유저가 없어요';
                 }
                 if (level == 1) {
                     document.getElementById("root").innerHTML = '지금은 여유로워요';
