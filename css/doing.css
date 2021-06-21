@@ -1,0 +1,51 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.card{
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: block;
+}
+
+.content{
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img_part{
+  position: relative;
+  text-align: right;
+}
+
+#emotion{
+  margin-left: 40px;
+  width: 260px;
+  height: auto;
+}
+
+.text_part{
+  position: relative;
+  width: 350px;
+  text-align: left;
+  margin-left: 120px;
+}
+
+span{
+  padding: 30px;
+}
+
+#name, #ing{
+  font-size: 2rem;
+}
+
+#line, #busy{
+  font-size: 1.5rem;
+}
