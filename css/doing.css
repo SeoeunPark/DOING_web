@@ -3,13 +3,33 @@ body{
   padding: 0px;
 }
 
+#bg{
+  position: fixed;
+  width: 1920px;
+}
+
+#to_ex{
+  position: fixed;
+  width: 200px;
+  height: 60px;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  margin-left: 348px;
+  margin-top: 640px;
+}
+
 .card{
-  position: absolute;
+  position: relative;
   display: flex;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-left: 820px;
+  padding-top: 200px;
+}
+
+.card img{
   position: block;
+  width: 980px;
+  height: auto;
 }
 
 .content{
@@ -18,6 +38,7 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding-top: 200px;
 }
 
 .img_part{
@@ -26,8 +47,8 @@ body{
 }
 
 #emotion{
-  margin-left: 40px;
-  width: 260px;
+  margin-left: 20px;
+  width: 160px;
   height: auto;
 }
 
@@ -35,17 +56,19 @@ body{
   position: relative;
   width: 350px;
   text-align: left;
-  margin-left: 120px;
+  margin-left: 30px;
 }
 
-span{
-  padding: 30px;
+.text_part> div{
+  padding-top: 2px;
+  width: 250px;
+  height: auto;
 }
 
 #name, #ing{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 #line, #busy{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
