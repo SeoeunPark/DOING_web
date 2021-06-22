@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <meta name="Info" content="width=device-width, initial-scale=1.0">
+    <title>친구의 상태</title>
+    <link rel="stylesheet" href="css/doing.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <img src="img/web_bg.png" alt="background" id="bg">
+    <input type="button" id="to_ex" onclick='onclick()'>
+    <div class="card">
+      <img src="img/card.png" alt="card background" id="card_bg">
+      <div class="content">
+        <div class="img_part">
+          <img src="img/transparency.png" alt="condition" id="condition">
+        </div>
+        <div class="text_part">
+          <div id="level"></div>
+          <br>
+          <div id="name"></div>
+          <div id="ing"></div>
+          <div id="about"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function getParameter(parameterName) {
+          let parameters = new URLSearchParams(window.location.search);
+          return parameters.get(parameterName);
+      }
+      var firebaseConfig = {
+          apiKey: "AIzaSyDG-SGv3SxwJ4Rmt__KcBLqraYBeCpr39g",
+          authDomain: "doing-651bf.firebaseapp.com",
+          databaseURL: "https://doing-651bf-default-rtdb.firebaseio.com",
+          projectId: "doing-651bf",
+          storageBucket: "doing-651bf.appspot.com",
+          messagingSenderId: "489449155904",
+          appId: "1:489449155904:web:9c4117a3e3a64246de9ea5",
+          measurementId: "G-5ZWNKSF2M2"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      var updateStarCount = function(key, value) {
+          if(key==="condition"){
+            document.getElementById(key).src = "img/emotion"+value+".png";
+          }else if(key==="name"){
+            document.getElementById(key).innerHTML = value+"님은";
+          }else if(key === "ing"){
+            document.getElementById(key).innerHTML = value+"하는 중이에요";
+          }else if(key==="about"){
+            document.getElementById(key).innerHTML = '<br/>'+"&quot;"+value+"&quot;";
+          }
+
+          if(key==="level"){
+              if(value==0){
+                document.getElementById(key).innerHTML = "지금은 여유로워요";
+              }else if(value==1){
+                document.getElementById(key).innerHTML = "지금은 바빠요";
+              }else{
+              document.getElementById(key).innerHTML = "지금은 매우 바빠요";
+          }
+        }
+            
+      };
+      var starCountRef = firebase.database().ref("users/" + getParameter("id"))
+      starCountRef.on('value', function(snapshot) {
+          snapshot.forEach((childSnapshot) => {
+              updateStarCount(childSnapshot.key,childSnapshot.val());
+          });
+      });
+
+  </script>
+
+
+  </body>
+</html>

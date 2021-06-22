@@ -1,0 +1,104 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+@font-face {
+  font-family: 'Cafe24SsurroundAir';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24SsurroundAir.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cafe24Ssurround';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#bg{
+  position: fixed;
+  width: 1920px;
+}
+
+#to_ex{
+  position: fixed;
+  width: 200px;
+  height: 60px;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  margin-left: 348px;
+  margin-top: 640px;
+}
+
+.card{
+  position: relative;
+  display: flex;
+  margin-left: 820px;
+  padding-top: 200px;
+}
+
+.card #card_bg{
+  position: block;
+  width: 1080px;
+  height: auto;
+}
+
+.content{
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 200px;
+}
+
+.img_part{
+  margin-top: 20px;
+  position: relative;
+  text-align: right;
+}
+
+#condition{
+  margin-left: 200px;
+  width: 160px;
+  height: auto;
+}
+
+.text_part{
+  position: relative;
+  width: 350px;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.text_part> div{
+  padding-top: 2px;
+  width: 350px;
+  height: auto;
+}
+
+#name, #ing{
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: 'Cafe24SsurroundAir';
+}
+
+#line, #busy{
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Cafe24SsurroundAir';
+}
+
+#about{
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Cafe24SsurroundAir';
+}
+
+#level{
+  font-size: 1.7rem;
+  font-family: 'Cafe24Ssurround';
+}
