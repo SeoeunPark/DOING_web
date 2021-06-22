@@ -18,16 +18,35 @@
     body::-webkit-scrollbar-track{
       color: #b163288c;
     }
-    img{
+    button{
+      position: fixed;
+      z-index: 100;
+      width: 80px;
+      height: 80px;
+      margin-top: 50px;
+      margin-left: 80px;
+      background: none;
+      border: none;
+    }
+    button> img{
+      position: fixed;
+      z-index: 100;
+      width: 80px;
+      height: 80px;
+      margin-top: -40px;
+      margin-left: -40px;
+    }
+    #panel{
       position: absolute;
       display: flex;
-      width: 90%;
+      width: 80%;
       height: auto;
       left: 50%;
       transform: translate(-50%, 0%);
     }
   </style>
   <body>
-    <img src="img/index.png" alt="panel">
+    <button type="button"><img src="img/arrow.png" alt="arrow"></button>
+    <img src="img/index.png" alt="panel" id="panel">
   </body>
 </html>
