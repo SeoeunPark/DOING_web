@@ -1,99 +1,53 @@
+  
 <!DOCTYPE html>
-<meta charset="utf-8">
 <html>
   <head>
-    <meta name="Info" content="width=device-width, initial-scale=1.0">
-    <title>친구의 상태</title>
-    <link rel="stylesheet" href="css/doing.css">
-    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>지금모해?</title>
   </head>
+  <style>
+    body{
+      background-color: #f58430;
+      overflow-y: scroll;
+    }
+    body::-webkit-scrollbar{
+      width: 10px;
+    }
+    body::-webkit-scrollbar-thumb{
+      color: white;
+      border-radius: 10px;
+    }
+    body::-webkit-scrollbar-track{
+      color: #b163288c;
+    }
+    button{
+      position: fixed;
+      z-index: 100;
+      width: 80px;
+      height: 80px;
+      margin-top: 50px;
+      margin-left: 80px;
+      background: none;
+      border: none;
+    }
+    button> img{
+      position: fixed;
+      z-index: 100;
+      width: 80px;
+      height: 80px;
+      margin-top: -40px;
+      margin-left: -40px;
+    }
+    #panel{
+      position: absolute;
+      display: flex;
+      width: 80%;
+      height: auto;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+  </style>
   <body>
-    <img src="img/web_bg.png" alt="background" id="bg">
-    <input type="button" id="to_ex" onclick="location.href='index.html'">
-    <div class="container">
-      <button class="btn btn-1" onclick="demo1()" id="demo1btn">데모계정 1</button>
-      <button class="btn btn-2" onclick="demo2()" id="demo2btn">데모계정 2</button>
-    </div>
-    <div class="card">
-      <img src="img/card.png" alt="card background" id="card_bg">
-      <div class="content">
-        <div class="img_part">
-          <img src="img/transparency.png" alt="condition" id="condition">
-        </div>
-        <div class="text_part">
-          <div id="level"></div>
-          <br>
-          <div id="name"></div>
-          <div id="ing"></div>
-          <div id="about"></div>
-        </div>
-      </div>
-      </div>
-    <script>
-      function demo1(){
-        window.location.href='doing.html?id=O68lFCL8elSauhan3tdfu3oP75s2'
-        // var property = document.getElementById("demo1btn");
-        // property.style.background="white";
-        // property.style.color="black";
-      }
-      function demo2(){
-        location.href='doing.html?id=yAmFzgtwnjcLMBPLivwjRhcWL1X2'
-        // var property = document.getElementById("demo1btn");
-        // property.style.background="white";
-        // property.style.color="black";
-      }
-      function getParameter(parameterName) {
-          let parameters = new URLSearchParams(window.location.search);
-          return parameters.get(parameterName);
-      }
-      var firebaseConfig = {
-          apiKey: "AIzaSyDG-SGv3SxwJ4Rmt__KcBLqraYBeCpr39g",
-          authDomain: "doing-651bf.firebaseapp.com",
-          databaseURL: "https://doing-651bf-default-rtdb.firebaseio.com",
-          projectId: "doing-651bf",
-          storageBucket: "doing-651bf.appspot.com",
-          messagingSenderId: "489449155904",
-          appId: "1:489449155904:web:9c4117a3e3a64246de9ea5",
-          measurementId: "G-5ZWNKSF2M2"
-      };
-
-      firebase.initializeApp(firebaseConfig);
-
-      var updateStarCount = function(key, value) {
-          if(key==="condition"){
-            document.getElementById(key).src = "img/emotion"+value+".png";
-          }else if(key==="name"){
-            document.getElementById(key).innerHTML = value+"님은";
-          }else if(key === "ing"){
-            document.getElementById(key).innerHTML = value+"하는 중이에요";
-          }else if(key==="about"){
-            document.getElementById(key).innerHTML = '<br/>'+"&quot;"+value+"&quot;";
-          }
-
-          if(key==="level"){
-              if(value==0){
-                document.getElementById(key).innerHTML = "지금은 여유로워요";
-              }else if(value==1){
-                document.getElementById(key).innerHTML = "지금은 바빠요";
-              }else{
-              document.getElementById(key).innerHTML = "지금은 매우 바빠요";
-          }
-        }
-            
-      };
-      var starCountRef = firebase.database().ref("users/" + getParameter("id"))
-      starCountRef.on('value', function(snapshot) {
-          snapshot.forEach((childSnapshot) => {
-              updateStarCount(childSnapshot.key,childSnapshot.val());
-          });
-      });
-
-  </script>
-
-
+    <button type="button" onclick="location.href='index.html?id=O68lFCL8elSauhan3tdfu3oP75s2'"><img src="img/arrow.png" alt="arrow"></button>
+    <img src="img/index.png" alt="panel" id="panel">
   </body>
 </html>
